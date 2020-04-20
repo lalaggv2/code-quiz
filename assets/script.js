@@ -37,7 +37,7 @@ var quizQuestions = [{
         c: "Search online for answers",
         d: "Panic and feel overwhelmed",
     }
-    correctAnswer: "b"
+    correctAnswer: "b",
 },
 {
     question: "What is console?",
@@ -47,10 +47,10 @@ var quizQuestions = [{
         c: "Part of the Inspector used to check my JS",
         d: "Conforting someone at a time of grief",
     }
-    correctAnswer: "c"
+    correctAnswer: "c",
 },
 
 ];
 console.log(quizQuestions);
 
-var showQuestions = 
+function showQuestions = 
