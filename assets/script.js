@@ -72,7 +72,7 @@ var quizQuestions = [{
     //     c: "Part of the Inspector used to check my JS",
     //     d: "Conforting someone at a time of grief",
     // },
-    answers: ["", ""],
+    answers: ["A thing I use to play video games", "Where my mom showcases her figurines", "],
     correctAnswer: 2
 }];
 
