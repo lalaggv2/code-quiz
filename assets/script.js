@@ -26,54 +26,54 @@ var quizScore = 0;
 var quizQuestions = [{
 
     question: "What are the variables used for in JS?",
-    answers: {
-        a: "Store values",
-        b: "Things that change",
-        c: "To do stuff",
-        d: "All of the above"
-    },
-    correctAnswer: "a"
+    answers: [
+        "Store values",
+        "Things that change",
+        "To do stuff",
+        "All of the above"
+    ],
+    correctAnswer: 0
 },
 {
     question: "Why do you use JS in your website?",
-    answers: {
-        a: "To make it fancy",
-        b: "To allow user input",
-        c: "To make it dynamic",
-        d: "All of the above"
-    },
-    correctAnswer: "d"
+    answers: [
+        "To make it fancy",
+        "To allow user input",
+        "To make it dynamic",
+        "All of the above"
+    ],
+    correctAnswer: 3
 },
 {
     question: "Which one of this is correct?",
-    answers: {
-        a: "var myVariable=4",
-        b: "var myVariable = '4kdkfldlkfs'",
-        c: "var myVariable = car;",
-        d: "var myVariable = car",
-    },
-    correctAnswer: "d"
+    answers: [
+        "var myVariable=4",
+        "var myVariable = '4kdkfldlkfs'",
+        "var myVariable = car;",
+        "var myVariable = car",
+    ],
+    correctAnswer: 3
 },
 {
     question: "What should you do when faced with a new JS task?",
-    answers: {
-        a: "Dive right in to code, things will work out in the end",
-        b: "Try to understand what you need to do",
-        c: "Search online for answers",
-        d: "Panic and feel overwhelmed",
-    },
-    correctAnswer: "b"
+    answers: [
+        "Dive right in to code, things will work out in the end",
+        "Try to understand what you need to do",
+        "Search online for answers",
+        "Panic and feel overwhelmed",
+    ],
+    correctAnswer: 1
 },
 {
     question: "What is console?",
-    // answers: {
-    //     a: "A thing I use to play video games",
-    //     b: "Where my mom showcases her figurines",
-    //     c: "Part of the Inspector used to check my JS",
-    //     d: "Conforting someone at a time of grief",
-    // },
-    answers: ["A thing I use to play video games", "Where my mom showcases her figurines", "],
+    answers: [
+        "A thing I use to play video games",
+        "Where my mom showcases her figurines",
+        "Part of the Inspector used to check my JS",
+        "Conforting someone at a time of grief",
+    ],
     correctAnswer: 2
+
 }];
 
 var questionIndex = 0;
@@ -82,7 +82,7 @@ function setTime() {
     var timerQuiz = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft + " seconds left in Quiz";
-
+        //check out condition for running out of time
         if (secondsLeft === 0) {
             clearInterval(timerQuiz);
             sendMessage();
@@ -116,7 +116,7 @@ function showQuestion() {
 
         quizArea.appendChild(question)
 
-        currentQuestion[questionIndex].answers.forEach(function (answer, index) {
+        currentQuestion.answers.forEach(function (answer, index) {
             var answerBtn = document.createElement('button');
 
             answerBtn.textContent = answer;
