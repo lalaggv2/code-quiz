@@ -7,24 +7,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Code Quiz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bahianita&display=swap');
+    </style>
     <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body>
     <div id='intro'>
         <h1>Welcome to the Game</h1>
-        <p>Time to check your coding abilities. Asnwer the following questions. If you're right, you'll get points, if
+        <p>Time to check your coding abilities. Answer the following questions. If you're right, you'll get points, if
             you're wrong, time will be deducted from the inital allotment</p>
 
     </div>
-    <h1>Score: <span id="score">0</span></h1>
-    <h2 id="timer"></h2>
-    <button id="start">Start</button>
-    <div id="quiz">
+    <div id="container">
 
+        <h1>Score: <span id="score">0</span></h1>
+        <h2 id="timer"></h2>
+        <button id="start">Start</button>
+
+        <div id="quiz">
+
+        </div>
+        <button id="highscores">High Scores</button>
+        <div id="results"></div>
     </div>
-    <button id="highscores">highscores</button>
-    <div id="results"></div>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

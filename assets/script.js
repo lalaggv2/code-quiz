@@ -15,6 +15,7 @@
 
 var startButton = document.querySelector("#start");
 var timer = document.querySelector("#timer");
+var timerQuiz = null;
 var quizArea = document.querySelector('#quiz')
 var secondsLeft = 75;
 var running = false;
@@ -45,12 +46,12 @@ var quizQuestions = [{
 {
     question: "Which one of this is correct?",
     answers: [
-        "var myVariable=4",
+        "var myvariable=4",
         "var myVariable = '4kdkfldlkfs'",
         "var myVariable = car;",
-        "var myVariable = car",
+        "var myvariable = car",
     ],
-    correctAnswer: 3
+    correctAnswer: 1
 },
 {
     question: "What should you do when faced with a new JS task?",
@@ -77,17 +78,13 @@ var quizQuestions = [{
 var questionIndex = 0;
 
 function setTime() {
-    var timerQuiz = setInterval(function () {
+    timerQuiz = setInterval(function () {
         secondsLeft--;
         timer.textContent = secondsLeft + " seconds left in Quiz";
         //check out condition for running out of time
         if (secondsLeft <= 0) {
             clearInterval(timerQuiz);
             gameOver();
-            //} else {
-            /// var showQuestion === true;
-            // showQuestion()
-
         }
     }, 1000);
 }
@@ -97,6 +94,7 @@ function setTime() {
 function gameOver() {
     secondsLeft = 0;
     timer.textContent = " ";
+    clearInterval(timerQuiz)
     alert("Game is Over");
 
     var initials = prompt(`Score: ${quizScore}\n Initials:`);
@@ -109,11 +107,13 @@ function gameOver() {
     var scores = localStorage.getItem('scores')
     if (scores) {
         // update
+        scores = JSON.parse(scores);
+        scores.push({ initials: initials, score: quizScore })
     } else {
-        scores = { initials: initials, score: quizScore }
+        scores = [{ initials: initials, score: quizScore }]
     }
 
-    localStorage.setItem(JSON.stringify(scores))
+    localStorage.setItem('scores', JSON.stringify(scores))
 }
 
 console.log(quizQuestions);
@@ -152,9 +152,7 @@ function showQuestion() {
     } else {
         gameOver()
     }
-    // to display them all on the same page
-    // quizQuestions.forEach(question => {
-    // });
+
     questionIndex++;
 }
 
@@ -163,6 +161,7 @@ startButton.addEventListener("click", function () {
         running = true;
         setTime();
         showQuestion();
+        startButton.style.display = 'none';
     }
 });
 
