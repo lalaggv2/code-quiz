@@ -1,14 +1,14 @@
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
+// -- GIVEN I am taking a code quiz
+// -- WHEN I click the start button
+// -- THEN a timer starts and I am presented with a question
+// -- WHEN I answer a question
+// -- THEN I am presented with another question
+// -- WHEN I answer a question incorrectly
+// -- THEN time is subtracted from the clock
 
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
+// -- WHEN all questions are answered or the timer reaches 0
+// -- THEN the game is over
+// -- WHEN the game is over
 // THEN I can save my initials and score
 
 //start button starts the timer
@@ -16,13 +16,11 @@
 var startButton = document.querySelector("#start");
 var timer = document.querySelector("#timer");
 var quizArea = document.querySelector('#quiz')
-var secondsLeft = 60;
+var secondsLeft = 75;
 var running = false;
-
-
 var quizScore = 0;
 
-// Here are the quiz questions as objects
+// Here are the quiz questions as array
 var quizQuestions = [{
 
     question: "What are the variables used for in JS?",
@@ -83,11 +81,12 @@ function setTime() {
         secondsLeft--;
         timer.textContent = secondsLeft + " seconds left in Quiz";
         //check out condition for running out of time
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0) {
             clearInterval(timerQuiz);
-            sendMessage();
+            gameOver();
             //} else {
-            //     var showQuestion === true;
+            /// var showQuestion === true;
+            // showQuestion()
 
         }
     }, 1000);
@@ -95,12 +94,26 @@ function setTime() {
 
 // when time is 0 you get a Time Over message
 
-function sendMessage() {
-    timeStart.textContent = " ";
-    alert("Time is Over");
+function gameOver() {
+    secondsLeft = 0;
+    timer.textContent = " ";
+    alert("Game is Over");
 
-    // var EndQuiz = document.createElement("alert");
+    var initials = prompt(`Score: ${quizScore}\n Initials:`);
+    console.log(initials, quizScore)
 
+    // get scores from local storage
+    // if scores exist, parse and update them with new score
+    // save new scores to local storge
+
+    var scores = localStorage.getItem('scores')
+    if (scores) {
+        // update
+    } else {
+        scores = { initials: initials, score: quizScore }
+    }
+
+    localStorage.setItem(JSON.stringify(scores))
 }
 
 console.log(quizQuestions);
@@ -108,6 +121,7 @@ console.log(quizQuestions);
 // I need to show the questions to the user, then a place to store                                                                                                                           
 function showQuestion() {
     if (questionIndex < quizQuestions.length) {
+        quizArea.textContent = " ";
         var currentQuestion = quizQuestions[questionIndex];
 
         var question = document.createElement("h2");
@@ -121,9 +135,22 @@ function showQuestion() {
 
             answerBtn.textContent = answer;
             answerBtn.setAttribute('data-index', index)
+            answerBtn.addEventListener("click", function () {
+                if (index == currentQuestion.correctAnswer) {
+                    quizScore += 5;
+                    document.getElementById("score").textContent = quizScore;
+                    showQuestion()
+                } else {
+                    secondsLeft -= 5;
+                    showQuestion()
+                }
+            })
+
             quizArea.appendChild(answerBtn)
         });
 
+    } else {
+        gameOver()
     }
     // to display them all on the same page
     // quizQuestions.forEach(question => {
@@ -137,4 +164,8 @@ startButton.addEventListener("click", function () {
         setTime();
         showQuestion();
     }
+});
+
+document.getElementById("highscores").addEventListener("click", function () {
+    window.location = "highscores.html";
 });
