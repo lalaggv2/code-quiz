@@ -112,7 +112,6 @@ function gameOver() {
     } else {
         scores = [{ initials: initials, score: quizScore }]
     }
-
     localStorage.setItem('scores', JSON.stringify(scores))
 }
 

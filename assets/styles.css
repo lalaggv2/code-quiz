@@ -1,14 +1,12 @@
-
-
 body {
-    background-color: 'ivory';
+    font-family: 'Bahianita', cursive;
 }
 
 #intro {
     background-color: ivory;
     text-align: center;
-    margin: 60px;
-    padding: 50px;
+    margin: 10px 40px;
+    padding: 20px;
     border: 10px dotted brown;
 }
 
