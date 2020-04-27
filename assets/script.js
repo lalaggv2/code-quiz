@@ -17,7 +17,7 @@ var startButton = document.querySelector("#start");
 var timer = document.querySelector("#timer");
 var timerQuiz = null;
 var quizArea = document.querySelector('#quiz')
-var secondsLeft = 75;
+var secondsLeft = 30;
 var running = false;
 var quizScore = 0;
 
@@ -136,11 +136,11 @@ function showQuestion() {
             answerBtn.setAttribute('data-index', index)
             answerBtn.addEventListener("click", function () {
                 if (index == currentQuestion.correctAnswer) {
-                    quizScore += 5;
+                    quizScore += 10;
                     document.getElementById("score").textContent = quizScore;
                     showQuestion()
                 } else {
-                    secondsLeft -= 5;
+                    secondsLeft -= 10;
                     showQuestion()
                 }
             })
