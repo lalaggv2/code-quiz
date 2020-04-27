@@ -26,7 +26,7 @@ if (scores) {
     });
 
 };
-
+//provide the user a way to go back to the quiz
 document.getElementById("goBackBtn").addEventListener("click", function () {
     window.location = "index.html";
 });
