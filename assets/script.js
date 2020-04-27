@@ -98,7 +98,7 @@ function gameOver() {
     alert("Game is Over");
 
     var initials = prompt(`Score: ${quizScore}\n Initials:`);
-    console.log(initials, quizScore)
+    //console.log(initials, quizScore)
 
     // get scores from local storage
     // if scores exist, parse and update them with new score
