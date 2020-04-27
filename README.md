@@ -1,10 +1,13 @@
 # code-quiz
 Wk 4 Homework
 
-I started by looking a videos and websites with tutorials about how to make this.
 
-Then studied more JavaScript to write the questions needed for the quiz
+In order to check your progress in learning, a quiz is a good resource.
 
-And then more time drafting the questions and then writing them in JS as objects.
+That is the reason to be of this exercise,
 
-Then more JS study, reviewing Dave's classes and then my Sunday is gone.
+to be timed quiz of your coding knowledge.
+
+You'll get points if you get the questions right and you will lose time if you get them wrong.
+
+At the end you can add your initials and check the high scores pages to see how you stack agains others.
