@@ -12,4 +12,6 @@ You'll get points if you get the questions right and you will lose time if you g
 
 At the end you can add your initials and check the high scores pages to see how you stack agains others.
 
+![image](https://user-images.githubusercontent.com/6589798/80326637-69d5f680-8807-11ea-8cae-e12e34053da7.png)
+
 
